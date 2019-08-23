@@ -6,10 +6,11 @@ $lrucache  = new \LRUcache\LRUcache(5);
 $key = "index_1";
 $lrucache->put($key,3);
 $lrucache->put("index_2",4444);
-//$lrucache->put("index_3",11);
-//s$lrucache->put("index_5",22);
-//$lrucache->put("index_6",333);
-//$lrucache->put("index_7",4);
+$lrucache->put("index_3",11);
+$lrucache->put("index_5",22);
+$lrucache->put("index_6",333);
+$lrucache->put("index_7",4);
+$lrucache->put("index_1",88);
 $lrucache->print_cache();
 
 

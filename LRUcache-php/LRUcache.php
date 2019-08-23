@@ -35,12 +35,27 @@ class LRUcache {
      */
     function print_cache(){
         if(empty($this->hashmap)){return false;}
+        $node = array();
+        foreach($this->hashmap as $key=>$item){
+            echo  "key is {$key}".PHP_EOL;
+            $node = $this->hashmap[$key];
+            echo "the key 's node 's key and value is ".$node->getKey()." and ".$node->getData().PHP_EOL;
+
+        }
+        die;
+        print_r($node);
+        $first_key = $node->getkey();
     /*    foreach($this->hashmap as $key=>$node){
             echo " key is {$key}, and data is ".print_r($node).PHP_EOL;
         }*/
 
+        //从一个key中可以找到所有的list node
 
-        print_r($this->hashmap);
+        while($node = $this->hashmap[$first_key]){
+            echo "key is ".$node->getKey().", value is ".$node->getData().PHP_EOL;
+            echo "the next node is :".print_r($node->getNext());
+            die;
+        }
     }
 
     /**
@@ -102,9 +117,15 @@ class LRUcache {
 
     // add a node to the head of the list
     public  function attach($head,$node){
-            $node->setPrevious($this->head);
-            $node->setNext($this->head->getNext());
+            $node->setPrevious($head);
+            $node->setNext($head->getNext());
 
+            $head->getNext()->setPrevious($node);
+
+            $head->setNext($node);
+
+            return true;
+            $head->getNext();
             //set the node's next node 's previous
             $node->getNext()->setPrevious($node);
             //set the previous 's node 's next node
