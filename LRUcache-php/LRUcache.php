@@ -119,17 +119,8 @@ class LRUcache {
     public  function attach($head,$node){
             $node->setPrevious($head);
             $node->setNext($head->getNext());
-
             $head->getNext()->setPrevious($node);
-
             $head->setNext($node);
-
-            return true;
-            $head->getNext();
-            //set the node's next node 's previous
-            $node->getNext()->setPrevious($node);
-            //set the previous 's node 's next node
-            $node->getPrevious()->setNext($node);
     }
     //remove one node
     public  function detach($node){

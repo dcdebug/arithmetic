@@ -11,6 +11,7 @@ $lrucache->put("index_5",22);
 $lrucache->put("index_6",333);
 $lrucache->put("index_7",4);
 $lrucache->put("index_1",88);
+$lrucache->put("index_7",5);
 $lrucache->print_cache();
 
 
